@@ -1,0 +1,614 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #fff7f8;
+  --background-2: #fff0f3;
+  --text: #3b292d;
+  --muted: #8d6d74;
+  --pink: #c96f83;
+  --pink-dark: #a94e64;
+  --white: #ffffff;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text);
+  background: radial-gradient(
+    circle at top left,
+    #ffffff 0%,
+    var(--background) 45%,
+    var(--background-2) 100%
+  );
+
+  overflow-x: hidden;
+}
+
+/* =========================
+   PÁGINAS
+========================= */
+
+.page {
+  position: relative;
+
+  min-height: 100dvh;
+
+  width: 100%;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: max(40px, env(safe-area-inset-top)) 24px
+    max(40px, env(safe-area-inset-bottom));
+
+  animation: pageIn 0.8s ease;
+}
+
+.page.active {
+  display: flex;
+}
+
+.content {
+  width: 100%;
+  max-width: 620px;
+
+  text-align: center;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================
+   TEXTOS
+========================= */
+
+.small-title {
+  display: block;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 4px;
+  text-transform: uppercase;
+
+  color: var(--pink);
+
+  margin-bottom: 22px;
+}
+
+h1,
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-weight: 600;
+
+  line-height: 0.95;
+}
+
+h1 {
+  font-size: clamp(52px, 12vw, 88px);
+
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: clamp(46px, 11vw, 72px);
+
+  margin-bottom: 24px;
+}
+
+.main-text {
+  max-width: 500px;
+
+  margin: 0 auto 18px;
+
+  font-size: 15px;
+
+  line-height: 1.9;
+
+  color: var(--muted);
+}
+
+.highlight {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 27px;
+  font-weight: 600;
+
+  margin: 28px auto;
+
+  color: var(--pink-dark);
+}
+
+/* =========================
+   BOTÃO
+========================= */
+
+.primary-button {
+  border: none;
+
+  background: var(--text);
+  color: white;
+
+  padding: 17px 26px;
+
+  border-radius: 50px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+
+  letter-spacing: 0.5px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.primary-button span {
+  margin-left: 10px;
+}
+
+.primary-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 12px 30px rgba(59, 41, 45, 0.18);
+}
+
+.primary-button:active {
+  transform: scale(0.97);
+}
+
+/* =========================
+   PÁGINA 1
+========================= */
+
+.scroll-hint {
+  position: absolute;
+
+  bottom: max(20px, env(safe-area-inset-bottom));
+
+  left: 0;
+  right: 0;
+
+  text-align: center;
+
+  font-size: 10px;
+
+  color: #b79ca2;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+/* =========================
+   PÁGINA 2
+========================= */
+
+.proposal {
+  max-width: 580px;
+}
+
+.heart-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 25px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  color: var(--pink);
+
+  font-size: 23px;
+
+  box-shadow: 0 12px 35px rgba(170, 78, 100, 0.12);
+
+  animation: heartbeat 2s infinite;
+}
+
+.question {
+  font-size: clamp(45px, 11vw, 76px);
+
+  margin-top: 36px;
+}
+
+.buttons {
+  position: relative;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 14px;
+
+  min-height: 65px;
+
+  margin-top: 30px;
+}
+
+.yes-button,
+.no-button {
+  border: none;
+
+  padding: 16px 27px;
+
+  border-radius: 50px;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.yes-button {
+  background: var(--pink);
+  color: white;
+
+  box-shadow: 0 10px 30px rgba(201, 111, 131, 0.28);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.yes-button:hover {
+  transform: scale(1.05);
+
+  background: var(--pink-dark);
+}
+
+.no-button {
+  background: white;
+
+  color: var(--muted);
+
+  border: 1px solid #ead9dd;
+
+  position: relative;
+
+  transition: 0.25s ease;
+}
+
+.no-message {
+  min-height: 20px;
+
+  margin-top: 18px;
+
+  color: var(--pink-dark);
+
+  font-size: 12px;
+}
+
+/* =========================
+   ÁLBUM
+========================= */
+
+.memories {
+  padding-top: 50px;
+  padding-bottom: 70px;
+}
+
+.divider {
+  font-size: 30px;
+
+  color: var(--pink);
+
+  margin: 30px 0;
+}
+
+.album {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 16px;
+
+  margin: 35px auto 50px;
+}
+
+.photo-card {
+  background: white;
+
+  padding: 8px;
+
+  box-shadow: 0 15px 35px rgba(65, 38, 44, 0.1);
+
+  border-radius: 4px;
+
+  transition: transform 0.3s ease;
+}
+
+.photo-card:hover {
+  transform: translateY(-5px) rotate(0deg);
+}
+
+.card-1 {
+  transform: rotate(-3deg);
+}
+
+.card-2 {
+  transform: rotate(3deg);
+}
+
+.card-3 {
+  transform: rotate(2deg);
+}
+
+.card-4 {
+  transform: rotate(-3deg);
+}
+
+.photo-card img {
+  width: 100%;
+
+  aspect-ratio: 1 / 1;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+/* =========================
+   ALIANÇAS
+========================= */
+
+.rings-section {
+  margin-top: 35px;
+}
+
+.rings-section > p:first-child {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 25px;
+
+  color: var(--muted);
+
+  margin-bottom: 25px;
+}
+
+.ring-photo {
+  width: 100%;
+
+  max-width: 420px;
+
+  margin: 0 auto 35px;
+
+  padding: 10px;
+
+  background: white;
+
+  box-shadow: 0 20px 45px rgba(65, 38, 44, 0.14);
+}
+
+.ring-photo img {
+  display: block;
+
+  width: 100%;
+
+  max-height: 500px;
+
+  object-fit: cover;
+}
+
+.rings-section h2 {
+  font-size: clamp(40px, 9vw, 64px);
+
+  margin-bottom: 20px;
+}
+
+.final-message {
+  max-width: 420px;
+
+  margin: 0 auto;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 25px;
+
+  line-height: 1.35;
+
+  color: var(--muted);
+}
+
+.signature {
+  margin-top: 45px;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 23px;
+
+  line-height: 1.5;
+
+  color: var(--muted);
+}
+
+.signature strong {
+  color: var(--text);
+
+  font-size: 30px;
+}
+
+/* =========================
+   CORAÇÕES
+========================= */
+
+.hearts {
+  position: fixed;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+.floating-heart {
+  position: absolute;
+
+  bottom: -30px;
+
+  color: rgba(201, 111, 131, 0.2);
+
+  font-size: 16px;
+
+  animation: floatHeart linear forwards;
+}
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+
+    transform: translateY(20px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  10% {
+    transform: scale(1.08);
+  }
+
+  20% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.08);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+}
+
+@keyframes floatHeart {
+  from {
+    transform: translateY(0) rotate(0deg);
+
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+
+    opacity: 0;
+  }
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+  .page {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  h1 {
+    line-height: 0.92;
+  }
+
+  .main-text {
+    font-size: 14px;
+
+    line-height: 1.8;
+  }
+
+  .highlight {
+    font-size: 25px;
+  }
+
+  .album {
+    gap: 12px;
+  }
+
+  .photo-card {
+    padding: 6px;
+  }
+
+  .question {
+    margin-top: 28px;
+  }
+
+  .buttons {
+    gap: 10px;
+  }
+
+  .yes-button,
+  .no-button {
+    padding: 15px 23px;
+  }
+}
+
+/* =========================
+   TELAS MUITO PEQUENAS
+========================= */
+
+@media (max-height: 700px) {
+  .page {
+    align-items: flex-start;
+
+    padding-top: 50px;
+  }
+
+  h1 {
+    font-size: 50px;
+
+    margin-bottom: 20px;
+  }
+
+  .main-text {
+    margin-bottom: 12px;
+  }
+
+  .highlight {
+    margin: 18px auto;
+  }
+}

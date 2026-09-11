@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+
+    <meta name="theme-color" content="#fff5f7" />
+
+    <title>Para você, Karen ❤️</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- CORAÇÕES DE FUNDO -->
+    <div class="hearts" id="hearts"></div>
+
+    <main>
+      <!-- =========================
+             PÁGINA 1
+        ========================== -->
+
+      <section class="page active" id="page-1">
+        <div class="content">
+          <span class="small-title"> Para você, Karen </span>
+
+          <h1>
+            Eu pensei em<br />
+            várias formas...
+          </h1>
+
+          <p class="main-text">
+            Pensei em falar pessoalmente. Pensei em escrever uma carta. Pensei
+            em fazer alguma coisa diferente, algo que você não estivesse
+            esperando.
+          </p>
+
+          <p class="main-text">
+            Mas no final percebi que não queria simplesmente fazer um pedido.
+          </p>
+
+          <p class="highlight">Eu queria criar uma lembrança. ❤️</p>
+
+          <button class="primary-button" onclick="nextPage()">
+            Continue...
+            <span>→</span>
+          </button>
+        </div>
+
+        <div class="scroll-hint">feito com carinho ❤️</div>
+      </section>
+
+      <!-- =========================
+             PÁGINA 2
+        ========================== -->
+
+      <section class="page" id="page-2">
+        <div class="content proposal">
+          <div class="heart-icon">♥</div>
+
+          <span class="small-title"> Chegou a hora... </span>
+
+          <h2>Karen,</h2>
+
+          <p class="main-text">
+            Desde que você entrou na minha vida, algumas coisas ficaram
+            diferentes.
+          </p>
+
+          <p class="main-text">
+            Os dias ficaram mais especiais, os momentos mais importantes e eu
+            comecei a imaginar muitos outros momentos ao seu lado.
+          </p>
+
+          <p class="main-text">
+            Eu não sei exatamente o que o futuro reserva para nós...
+          </p>
+
+          <p class="highlight">Mas eu sei com quem eu quero descobrir. ❤️</p>
+
+          <h1 class="question">
+            Você aceita<br />
+            namorar comigo?
+          </h1>
+
+          <div class="buttons">
+            <button class="yes-button" onclick="sayYes()">Sim! ❤️</button>
+
+            <button class="no-button" id="noButton">Não</button>
+          </div>
+
+          <p class="no-message" id="noMessage"></p>
+        </div>
+      </section>
+
+      <!-- =========================
+             PÁGINA 3
+        ========================== -->
+
+      <section class="page" id="page-3">
+        <div class="content memories">
+          <span class="small-title"> Então é oficial... ❤️ </span>
+
+          <h1>
+            Nossa história<br />
+            continua.
+          </h1>
+
+          <p class="main-text">E se depender de mim, esse é só o começo.</p>
+
+          <div class="divider">♡</div>
+
+          <!-- ÁLBUM -->
+
+          <div class="album">
+            <div class="photo-card card-1">
+              <img src="assets/fotos/foto-01.jpeg" alt="Nossa lembrança" />
+            </div>
+
+            <div class="photo-card card-2">
+              <img src="assets/fotos/foto-02.jpeg" alt="Nossa lembrança" />
+            </div>
+
+            <div class="photo-card card-3">
+              <img src="assets/fotos/foto-03.jpeg" alt="Nossa lembrança" />
+            </div>
+
+            <div class="photo-card card-4">
+              <img src="assets/fotos/foto-04.jpeg" alt="Nossa lembrança" />
+            </div>
+          </div>
+
+          <!-- ALIANÇAS -->
+
+          <div class="rings-section">
+            <p>E ainda tem uma coisa...</p>
+
+            <div class="ring-photo">
+              <img src="assets/aliancas.png" alt="Alianças" />
+            </div>
+
+            <h2>Que venham muitos capítulos. ❤️</h2>
+
+            <p class="final-message">
+              Eu escolho você. Hoje, amanhã e em todos os dias que vierem.
+            </p>
+
+            <div class="signature">
+              Com amor,<br />
+              <strong>Bruno</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- MÚSICA OPCIONAL -->
+
+    <!--
+    <audio id="music" loop>
+        <source src="assets/musica.mp3" type="audio/mpeg">
+    </audio>
+    -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
